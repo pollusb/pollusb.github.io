@@ -1,42 +1,19 @@
-title: "CafeSql"
-author: "Pollus Brodeur"
-description: "A short espresso at CafeSql" # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+# Site Build Settings
 
-# Email / Social media user names used by the minima theme:
-# All of these are optional and can be removed or commented out
-email: "pollusb@gmail.com"
-twitter_username: "pollusb"
-github_username: "pollusb"
-linkedin_username: "pollusb"
-#facebook_username: username
-#flickr_username: username
-#instagram_username: username
-#pinterest_username: username
-#youtube_username: username
-#googleplus_username: +username
+# jekyll-paginate configuration
+paginate:            5
 
-#########################################################################################
-######### Nothing below needs to be changed (unless you know what you're doing) #########
-#########################################################################################
-theme: jekyll-theme-minimal
+# Build settings
+markdown:            kramdown
+highlighter:         rouge
+permalink:           /:title
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
-rss: rss
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+title:		           "Millennial"
+description:	       "a minimalist Jekyll theme for running a blog or publication"
+author:              "Paul Le"
 
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
-    
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-
-titles_from_headings:
-  strip_title: true
-  collections: true
-
-defaults:
-  - scope:
-      path: ""
-      type: post
-    values:
-      tags: Other
+# RSS 2.0 can be used instead of Atom by uncommenting following two lines
+#feed:
+#  path: rss-feed.xml
