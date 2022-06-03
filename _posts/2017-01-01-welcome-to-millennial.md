@@ -4,7 +4,7 @@ title: "My first post"
 author: "pollusb"
 categories: documentation
 tags: [documentation,sample]
-image: beach3.png
+image: beach3.jpg
 ---
 
 Millennial is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
