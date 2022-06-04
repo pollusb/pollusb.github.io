@@ -93,7 +93,7 @@ defaults:
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
 title: "CafeSql" # Site name or title, also used in jekyll-seo-tag
-logo: "/assets/logos/cafesql-mono.svg" # Site logo, also used in jekyll-seo-tag
+logo: "/assets/logos/cafe.svg" # Site logo, also used in jekyll-seo-tag
 description: "A short espresso for the moment, please" # Site description and default description, also used in jekyll-seo-tag
 url: "https://cafesql.com" # Site url, also used in jekyll-seo-tag
 baseurl: ""
