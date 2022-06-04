@@ -1,14 +1,15 @@
 ---
 title: Automate tasks in SSMS
 categories:
-- automate, ssms
+- automate
+- ssms
 excerpt: |
   As a DBA, you probably use SSMS everyday. I'm sure you have some pain point that you wish you could automate. Would that be nice to just Ctrl-Shift-X to export to Excel?
 feature_text: |
-  ## feature text
-  The modern pot still is a descendant of the alembic, an earlier distillation device
-feature_image: "https://picsum.photos/2560/600?image=733"
-image: "https://picsum.photos/2560/600?image=733"
+  ## When all fail, use the dummiest idea
+  Do I really look like a guy with a plan?
+feature_image: "https://picsum.photos/2560/600?image=734"
+image: "https://picsum.photos/2560/600?image=735"
 ---
 
 As a DBA, you probably use SSMS everyday. I'm sure you have some pain point that you wish you could automate. Would that be nice to just Ctrl-Shift-X to export to Excel?
