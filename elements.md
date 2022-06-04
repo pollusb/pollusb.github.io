@@ -48,11 +48,7 @@ Some HTML...
 
 ### Video include
 
-{% include video.html id="gZ7D0NYcF4Q" title="Siteleaf tutorial video" %}
-
-``` html
-{% raw %}{% include video.html id="gZ7D0NYcF4Q" title="Siteleaf tutorial video" %}{% endraw %}
-```
+{% include video.html id="Zz1xUbJprCw" title="Chico, Harpo & Groucho Marx at the piano" %}
 
 ### Image includes
 
