@@ -5,7 +5,7 @@ categories:
 excerpt: |
   As a DBA, you probably use SSMS everyday. I'm sure you have some pain point that you wish you could automate. Would that be nice to just Ctrl-Shift-X to export to Excel?
 feature_text: |
-  ## The Pot Still
+  ## feature text
   The modern pot still is a descendant of the alembic, an earlier distillation device
 feature_image: "https://picsum.photos/2560/600?image=733"
 image: "https://picsum.photos/2560/600?image=733"
