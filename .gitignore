@@ -1,7 +1,8 @@
-.DS_Store
-.bundle
-.jekyll-cache
-.sass-cache
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+alembic-jekyll-theme-*.gem
 Gemfile.lock
-_site
-*.gem
+**/Gemfile.lock
+

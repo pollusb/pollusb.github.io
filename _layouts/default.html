@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-<meta charset="{{ site.encoding }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="{{ page.author | default: site.author | escape }}">
-<meta name="generator" content="Jekyll v{{ jekyll.version }}">
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-{% if site.show_frame %}
-<link rel="stylesheet" href="{{ "/assets/css/frame.css" | relative_url }}">
-{% else %}
-<link rel="stylesheet" href="{{ "/assets/css/index.css" | relative_url }}">
-{% endif %}
-{% if site.plugins contains "jekyll-feed" %}<link rel="alternate" href="{{ site.feed.path | default: "/feed.xml" | relative_url }}" type="application/atom+xml" title="{{ site.title }}">{% endif %}
-{% if page.mathjax or site.mathjax %}
-<link rel="stylesheet" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
-<script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script>
-<script defer src="{{ "/assets/katex/contrib/auto-render.min.js" | relative_url }}" onload="renderMathInElement(document.body)"></script>
-{% endif %}
-{% if site.comments.disqus_shortname and page.layout == "post" %}<script src="//{{ site.comments.disqus_shortname }}.disqus.com/embed.js" async></script>{% endif %}
-{% if site.comments.isso_domain and page.layout == "post" %}<script data-isso="http://{{ site.comments.isso_domain }}" src="//{{ site.comments.isso_domain }}/js/embed.min.js"></script>{% endif %}
-{% if site.show_sidebar or site.sidebar %}{% include sidebar.html %}{% endif %}
+<html lang="{{ site.lang | default: "en-US" }}">
 
-{% if site.navigation %}
-  {% assign pages = site.navigation %}
-{% else %}
-  {% assign pages = site.pages | where_exp: "item", "item.title and item.sitemap != false" | sort: "order" %}
-{% endif %}
+  <head>
+    <!-- General meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<header>
-  <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
-  {% include menu.html menu=pages %}
-</header>
+    {% if page.indexing == false %}
+      <meta name="robots" content="noindex">
+    {% endif %}
 
-{{ content }}
+    {% if page.collectionpage %}
+      {% seo title=false %}
 
-{% if site.external %}
-<footer>
-  <div>{{ site.description | default: site.title }}</div>
-  {% include menu.html menu=site.external %}
-</footer>
-{% endif %}
+      {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+      <title>{{ collectiondata.title }} - {{ site.title }}</title>
+      <meta property="og:title" content="{{ collectiondata.title }}">
+      <meta name="description" content="{{ collectiondata.description }}">
+      <meta property="og:description" content="{{ collectiondata.description }}">
+    {% else %}
+      {% seo %}
+    {% endif %}
+    {% if site.fonts.preconnect_urls %}
+      {% for url in site.fonts.preconnect_urls %}
+        <link rel="preconnect" href="{{ url }}" crossorigin />
+      {% endfor %}
+    {% endif %}
+
+    <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
+    <meta name="theme-color" content="{{ site.manifest.theme_color | default: '#242e2b' }}"/>
+
+    {% if site.css_inline == true %}
+      {% include site-styles.html %}
+    {% else %}
+      <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
+    {% endif %}
+
+    {% if site.favicons or site.avatarurl %}{% include site-favicons.html %}{% endif %}
+
+    {% if site.google_analytics %}{% include site-analytics.html %}{% endif %}
+
+    {% include site-fonts.html %}
+
+    {% include site-before-start.html %}
+  </head>
+
+  <body class="layout-{{ page.layout }}{% if page.title %}  {{ page.title | slugify }}{% endif %}">
+    {% include site-icons.svg %}
+
+    {{ content }}
+
+    {% if site.service_worker != false %}{% include site-sw.html %}{% endif %}
+
+    {% include site-before-end.html %}
+  </body>
 
 </html>
